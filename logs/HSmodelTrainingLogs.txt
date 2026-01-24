@@ -1,0 +1,82 @@
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> & C:/Users/Bilge/AppData/Local/Programs/Python/Python314/python.exe c:/Users/Bilge/OneDrive/Masaüstü/RUL/preProcess.py
+--- Reading Development data ---
+Structure: Flat - Reading directly from root.
+Concatenating data parts... (Row count: 5263447)
+Labeling flight modes...
+
+--- Labeling Results ---
+flight_phase
+Cruise     3253453
+Climb      1727768
+Descent     282226
+Name: count, dtype: int64
+
+Cleaning 'Descent' data...
+Original Data Shape: (5263447, 24)
+Filtered Data Shape: (4981221, 24)
+
+Saving file: N-CMAPSS_DS02_ClimbCruise.parquet
+
+✅ PROCESS COMPLETED SUCCESSFULLY.
+✅ PROCESS COMPLETED SUCCESSFULLY.
+Next step: Downsampling and Preprocessing.
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> & C:/Users/Bilge/AppData/Local/Programs/Python/Python314/python.exe c:/Users/Bilge/OneDrive/Masaüstü/RUL/preProcess_visualization.py
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "c:\Users\Bilge\OneDrive\Masaüstü\RUL\preProcess_visualization.py", line 3, in <module>
+    import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> & C:/Users/Bilge/AppData/Local/Programs/Python/Python314/python.exe c:/Users/Bilge/OneDrive/Masaüstü/RUL/preProcess_visualization.py
+Veri yüklendi, analiz başlıyor...
+
+--- ANALİZ SONUCU ---
+Toplam İncelenen Motor Sayısı: 6
+En ERKEN Bozulma Başlangıcı: 16.0. Cycle
+Ortalama Bozulma Başlangıcı: 16.8. Cycle
+En GEÇ Bozulma Başlangıcı: 17.0. Cycle
+
+KARAR:
+✅ 'İlk 15 Cycle' varsayımı GÜVENLİ. (Hatta ilk 15 cycle kullanılabilir)
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> ^C
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> & C:/Users/Bilge/AppData/Local/Programs/Python/Python314/python.exe c:/Users/Bilge/OneDrive/Masaüstü/RUL/healthyStateModel.py
+Device used: cuda
+GPU: NVIDIA GeForce GTX 1660 SUPER
+Reading data: data/N-CMAPSS_DS02_ClimbCruise.parquet ...
+Extracting first 15 cycles (Healthy Data)...
+Normalizing...
+Scaler objects saved.
+
+Model Architecture:
+ReferenceModel(
+  (net): Sequential(
+    (0): Linear(in_features=4, out_features=200, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=200, out_features=200, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=200, out_features=200, bias=True)
+    (5): ReLU()
+    (6): Linear(in_features=200, out_features=200, bias=True)
+    (7): ReLU()
+    (8): Linear(in_features=200, out_features=14, bias=True)
+  )
+)
+
+Training Started...
+Epoch 1/100 | Train Loss: 0.00519 | Val Loss: 0.00031
+Epoch 2/100 | Train Loss: 0.00022 | Val Loss: 0.00028
+Epoch 3/100 | Train Loss: 0.00021 | Val Loss: 0.00022
+Epoch 4/100 | Train Loss: 0.00019 | Val Loss: 0.00026
+Epoch 5/100 | Train Loss: 0.00016 | Val Loss: 0.00024
+Epoch 6/100 | Train Loss: 0.00015 | Val Loss: 0.00022
+Epoch 7/100 | Train Loss: 0.00015 | Val Loss: 0.00011
+Epoch 8/100 | Train Loss: 0.00012 | Val Loss: 0.00010
+Epoch 9/100 | Train Loss: 0.00012 | Val Loss: 0.00014
+Epoch 10/100 | Train Loss: 0.00011 | Val Loss: 0.00021
+Epoch 11/100 | Train Loss: 0.00011 | Val Loss: 0.00011
+Epoch 12/100 | Train Loss: 0.00010 | Val Loss: 0.00015
+Epoch 13/100 | Train Loss: 0.00010 | Val Loss: 0.00013
+
+Early Stopping triggered! Best Val Loss: 0.00010
+Training completed. Model saved: healthyStateModel/model_reference.pth
+PS C:\Users\Bilge\OneDrive\Masaüstü\RUL> 
