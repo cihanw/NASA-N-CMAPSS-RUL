@@ -36,6 +36,6 @@ The raw data undergoes a comprehensive 7-step preprocessing pipeline to prepare 
 
 ## Current Status
 
-*   **Test Set:** Preprocessing is complete.
-*   **Train Set:** Currently being processed through the same pipeline.
+*   **Train Set:** Done.
+*   **Test Set:** Done.
 *   **Next Steps:** Training ML and AI models using the processed data.
